@@ -20,7 +20,7 @@ class WorkKharkivSpider(scrapy.Spider):
             yield response.follow(worker_card_uri, self.parse_person, meta={
                 'result': result_pars
             })
-
+#Pagination
         for page in response.css('ul.pagination li'):
             if page.css('a::text').get() == 'Наступна':
                 yield response.follow(
